@@ -11,3 +11,7 @@ body {
 div.grocery-list {
   display: none;
 }
+
+.center-block {
+  float: none;
+}
