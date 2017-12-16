@@ -13,5 +13,11 @@ $('form#cart').submit(function(event) {
       groceries.push($('input#grocery' + [i]).val());
     }
   }
-  console.log('groceries = ', groceries);
+
+  // Uppercase and sort groceries by using .map and .sort
+  let sortedGroceries = groceries.map(function(grocery) {
+    return grocery.toUpperCase();
+  });
+  sortedGroceries.sort();
+  console.log('sortedGroceries = ' , sortedGroceries);
 });
