@@ -6,5 +6,12 @@ let groceries = [];
 // Form event listener
 $('form#cart').submit(function(event) {
   event.preventDefault();
-  alert('form submitted');
+
+  // For loop to push input content into the array
+  for (let i = 1; i < 6; i++) {
+    if ($('input#grocery' + [i]).val() !== '') {
+      groceries.push($('input#grocery' + [i]).val());
+    }
+  }
+  console.log('groceries = ', groceries);
 });
