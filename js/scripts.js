@@ -2,6 +2,13 @@
 // Array of html inputs
 let groceries = [];
 
+// Function to create a list item, add content, and append it to the DOM
+function createLi(content) {
+  let li = $('<li></li>');
+  li.text(content);
+  $('div.grocery-list ul').append(li);
+}
+
 // User-interface (or front-end) logic;
 // Form event listener
 $('form#cart').submit(function(event) {
@@ -20,4 +27,12 @@ $('form#cart').submit(function(event) {
   });
   sortedGroceries.sort();
   console.log('sortedGroceries = ' , sortedGroceries);
+
+  // For loop to append sortedGroceries array content into div.grocery-list ul
+  for (let i = 0; i < sortedGroceries.length; i++) {
+    createLi(sortedGroceries[i]);
+  }
+  // Show div.grocery-list
+  $('div.grocery-list').slideDown();
+  console.log('groceries = ', groceries);
 });
