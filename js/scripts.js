@@ -13,6 +13,11 @@ function createLi(content) {
 // Form event listener
 $('form#cart').submit(function(event) {
   event.preventDefault();
+  // Empty groceries array and div.grocery-list ul if the form has already been submitted;
+  if (groceries.length !== 0) {
+    groceries.length = 0;
+    $('div.grocery-list ul').empty();
+  }
 
   // For loop to push input content into the array
   for (let i = 1; i < 6; i++) {
@@ -26,13 +31,19 @@ $('form#cart').submit(function(event) {
     return grocery.toUpperCase();
   });
   sortedGroceries.sort();
-  console.log('sortedGroceries = ' , sortedGroceries);
+  // console.log('sortedGroceries = ' , sortedGroceries);
 
   // For loop to append sortedGroceries array content into div.grocery-list ul
   for (let i = 0; i < sortedGroceries.length; i++) {
     createLi(sortedGroceries[i]);
   }
+
+  //Empty sortedGroceries array after appending it to the DOM
+  if (sortedGroceries.length !== 0) {
+    sortedGroceries.length = 0;
+  }
   // Show div.grocery-list
   $('div.grocery-list').slideDown();
-  console.log('groceries = ', groceries);
+  // console.log('groceries = ', groceries);
+  // console.log('sortedGroceries = ', sortedGroceries);
 });
