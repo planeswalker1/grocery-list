@@ -47,3 +47,9 @@ $('form#cart').submit(function(event) {
   // console.log('groceries = ', groceries);
   // console.log('sortedGroceries = ', sortedGroceries);
 });
+
+  // Inputs event listener
+$('input').focus(function() {
+  // Hide div.grocery-list
+  $('div.grocery-list').slideUp();
+});
